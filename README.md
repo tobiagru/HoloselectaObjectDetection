@@ -19,7 +19,7 @@ Explanation: This is part of an effort to provide Object detection for any range
 
 
 ##  Ideas
-* Add an OCR net (e.g Attention OCR) to the object detection
+* Add an OCR net (e.g Attention OCR https://github.com/tensorflow/models/tree/master/research/attention_ocr) to the object detection
    * as a seperate part on top of the image patch (rcnn style)
    * as part of the CNN net (faster-rcnn style)
 * ...
