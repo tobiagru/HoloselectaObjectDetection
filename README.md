@@ -10,7 +10,7 @@ Tutor: Prof. Elgar Fleisch
 Chair: Information Management
 Department: Managment, Technology & Economics
 University: ETH Zurich
-Explanation: This is part of an effort to provide Object detection for any range of groceries to any granularity level. References are the products of the ... database.
+Explanation: This is part of an effort to provide Object detection for any range of groceries to any granularity level. References are the products of the EatFit database (https://eatfit-service.foodcoa.ch/products/).
 
 
 ## Files
