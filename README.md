@@ -1,41 +1,24 @@
 # ObjectDetection
-ObjectDetection for Grocery Products
+ObjectDetection for Grocery Products. These are the files as part of the publication: https://www.researchgate.net/profile/Klaus_Fuchs2/publication/337068624_Towards_Identification_of_Packaged_Products_via_Computer_Vision_Convolutional_Neural_Networks_for_Object_Detection_and_Image_Classification_in_Retail_Environments/links/5dc7de0692851c81803f4126/Towards-Identification-of-Packaged-Products-via-Computer-Vision-Convolutional-Neural-Networks-for-Object-Detection-and-Image-Classification-in-Retail-Environments.pdf
+
+The data sets can be obtained at: https://github.com/tobiagru/ObjectDetectionGroceryProducts
 
 ## Explanation
-This is part of the Masterthesis:
-Title: Real Time Enhancement of Nutrition Data for Groceries with Object Detection and Augmented Reality: Feasibility & Usability Study
-Author: Tobias Grundmann
-Supervisor: Klaus Fuchs
-Tutor: Prof. Elgar Fleisch
-Chair: Information Management
-Department: Managment, Technology & Economics
-University: ETH Zurich
-Explanation: This is part of an effort to provide Object detection for any range of groceries to any granularity level. References are the products of the EatFit database (https://eatfit-service.foodcoa.ch/products/).
+The research was seperated into two parts. Checking pure classificaiton performance and checking object detection performance. Everything was written in Colab. Thus it is easiest to copy this repository to your Google Drive and open the files in Colab.
 
+### Classification 
+Both files include all the required loaders and tools, the difference is how the algorithm is tuned. V1.2 only traines the classification layer, while V2.0 finetunes the entire network. 
 
-## Files
-* DataHandling.ipynb - Data Pipeline
-* Config.json - all configs
+The classification is based on networks from tensorflow hub and the entire algorithm is built in Keras.
 
+### Object Detection
+Object Detection is based on the Google Research Object Detection API.
 
-##  Ideas
-* Add an OCR net (e.g Attention OCR https://github.com/tensorflow/models/tree/master/research/attention_ocr) to the object detection
-   * as a seperate part on top of the image patch (rcnn style)
-   * as part of the CNN net (faster-rcnn style)
-* ...
+#### Data
+The labeling was done with labelImg (https://github.com/tzutalin/labelImg) but CleanData can be used to adjust the labels per individual patch. The major tool is Create Dataset which can be used to turn the dataset into TFRecords files as required for the Object Detection API.
 
-## Reviews
-* Object Detection - https://medium.com/comet-app/review-of-deep-learning-algorithms-for-object-detection-c1f3d437b852
-* Object Detection - https://github.com/hoya012/deep_learning_object_detection
-* Object Detection - https://arxiv.org/abs/1807.05511v1
+#### Training
+The training folder contains different scripts for different training platforms. Not all models can be trained on TPU thus there are GPU and TPU versions. On top due to the fact that one can only run one GPU Colab but I needed multiple there are as well files to train on the Google Cloud with the Machine Learning Engine.
 
-## Modelzoos
-* Keras Applications – VGG, ResNet, Inception, DenseNet, MobileNet, NASNet - https://keras.io/applications
-* Tensorflow Object Detection API - SSD, Faster R-CNN, RetinaNet  – https://github.com/tensorflow/models/tree/master/research/object_detection/models
-* Tensorflow Slim - InceptionNet, ResNet, MobileNet, NASNet, PNASNet –  https://github.com/tensorflow/models/tree/master/research/slim
-* SSD port to Keras – SSD - https://github.com/pierluigiferrari/ssd_keras
-* RetinaNet port to Keras – RetinaNet - https://github.com/fizyr/keras-retinanet
-* Yolo v3 Port to Keras – yolo - https://modelzoo.co/model/keras-yolov3
-* Collection of Object Detection Nets – all - https://github.com/hoya012/deep_learning_object_detection
-
-
+#### Export
+Export are tools to export the models to various platforms. TFLite for Android Apps, Unity for Baracuda based Apps, Serving for Tensorflow Extended Serving. Inference Colab can be used to upload files and make predicitons in Colab. 
