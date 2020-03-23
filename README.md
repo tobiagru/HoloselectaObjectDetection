@@ -12,7 +12,7 @@ Both files include all the required loaders and tools, the difference is how the
 The classification is based on networks from tensorflow hub and the entire algorithm is built in Keras.
 
 ### Object Detection
-Object Detection is based on the Google Research Object Detection API.
+Object Detection is based on the Google Research Object Detection API (https://github.com/tensorflow/models/tree/master/research/object_detection).
 
 #### Data
 The labeling was done with labelImg (https://github.com/tzutalin/labelImg) but CleanData can be used to adjust the labels per individual patch. The major tool is Create Dataset which can be used to turn the dataset into TFRecords files as required for the Object Detection API.
